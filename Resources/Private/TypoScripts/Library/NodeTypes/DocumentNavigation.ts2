@@ -1,0 +1,8 @@
+prototype(TYPO3.DocsTypo3Org:DocumentNavigation) < prototype(TYPO3.TypoScript:Template) {
+	@class = 'TYPO3\\DocsTypo3Org\\TypoScript\\DocumentNavigationImplementation'
+	templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/TypoScriptObjects/DocumentNavigation.html'
+
+	node = ${documentNode}
+	items = ${this.items}
+	nodePath = 'main'
+}

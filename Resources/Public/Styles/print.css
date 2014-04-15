@@ -1,0 +1,80 @@
+* { background: #fff!important; }
+html {
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif
+}
+
+.print-info { display: block !important; }
+
+#beta,
+#beta-status,
+#aside,
+.s-sidebar,
+.nav,
+.bu,
+.breadcrumbs,
+.h-bar { display: none !important; }
+
+@font-face {
+		font-family: 'Share';
+		src: url('../Fonts/share-bold-webfont.eot');
+		src: url('.../Fonts/share-bold-webfont.eot?#iefix') format('embedded-opentype'),
+				url('../Fonts/share-bold-webfont.woff') format('woff'),
+				url('../Fonts/share-bold-webfont.ttf') format('truetype'),
+				url('../Fonts/share-bold-webfont.svg#Share-BoldRegular') format('svg');
+		font-weight: bold;
+		font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: bold; font-family: Share; margin: 1em 0 0.5em 0; }
+h1 { font-size: 200%; color: #FF8700; }
+h2 { font-size: 160%; }
+h3 { font-size: 140%; }
+h4 { font-size: 120%; }
+h5 { font-size: 100%; }
+h6 { font-size: 100%; }
+
+p { margin: 0 0 0.5em 0; }
+
+table tr th { font-weight: bold; }
+table tr th, table tr td { border-bottom: 1px solid #CCCCCC; }
+
+.gf { margin-top: -32px; }
+.gf > .g-5:first-child { visibility: hidden; }
+.cl:after { content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+
+#page {
+	padding-top: 50px;
+	margin: 0 0 1em 0;
+}
+.h {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 50px;
+	width: 100%;
+	z-index: 10;
+}
+.c { position: relative; }
+
+.d ul { padding-left: 20px; }
+.d ul li { list-style: disc; padding-left: 0; }
+
+.linked-check-list a { padding-left: 0!important; }
+.linked-check-list a:before { display: none; }
+
+#content { border: none; }
+
+#footer { border-top: 1px solid #EAEAEA; padding: 1em 0 0 0; margin: 0 0 1em 0; }
+#footer .f-body > * { display: none; }
+
+.tx-pagebrowse-pi1 {
+	display: none;
+}
+
+.ter-toggle-show {
+	display: block !important;
+}
+.ter-toggle-showLess,
+.ter-toggle-showMore {
+	display: none !important;
+}

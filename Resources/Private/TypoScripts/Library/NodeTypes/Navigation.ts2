@@ -1,0 +1,49 @@
+prototype(TYPO3.DocsTypo3Org:MainMenu) < prototype(TYPO3.Neos:Menu) {
+	templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/TypoScriptObjects/MainMenu.html'
+	entryLevel = 1
+}
+
+prototype(TYPO3.DocsTypo3Org:SidebarMenu) < prototype(TYPO3.Neos:Menu) {
+	templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/TypoScriptObjects/SidebarMenu.html'
+
+	active.attributes = TYPO3.TypoScript:Attributes {
+		class = 'active nav-aside-lvl1'
+	}
+	current.attributes = TYPO3.TypoScript:Attributes {
+		class = 'current nav-aside-lvl1'
+	}
+	normal.attributes = TYPO3.TypoScript:Attributes {
+		class = 'normal nav-aside-lvl1'
+	}
+
+	entryLevel = 2
+	maximumLevels = 6
+}
+
+prototype(TYPO3.DocsTypo3Org:HelpMenu) < prototype(TYPO3.Neos:Menu) {
+	templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/TypoScriptObjects/SidebarMenu.html'
+
+	active.attributes = TYPO3.TypoScript:Attributes {
+		class = 'active nav-aside-lvl1'
+	}
+	current.attributes = TYPO3.TypoScript:Attributes {
+		class = 'current nav-aside-lvl1'
+	}
+	normal.attributes = TYPO3.TypoScript:Attributes {
+		class = 'normal nav-aside-lvl1'
+	}
+
+	startingPoint = ${q(site).children('introduction').get(0)}
+	maximumLevels = 3
+}
+
+prototype(TYPO3.DocsTypo3Org:DocumentationBrowserMenu) < prototype(TYPO3.TypoScript:Template) {
+	templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/TypoScriptObjects/DocumentationMenu.html'
+	attributes = TYPO3.TypoScript:Attributes {
+		class = 'documentation-menu'
+	}
+
+	prev = ${q(documentNode).prevDocument('[instanceof TYPO3.DocsTypo3Org:DocumentationPage]').get(0)}
+	up = ${q(documentNode).parents('[instanceof TYPO3.DocsTypo3Org:DocumentationCover]').get(0)}
+	next = ${q(documentNode).nextDocument('[instanceof TYPO3.DocsTypo3Org:DocumentationPage]').get(0)}
+}

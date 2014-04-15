@@ -1,0 +1,22 @@
+'TYPO3.DocsTypo3Org:Project':
+  superTypes:
+    - 'TYPO3.Neos:Document'
+  ui:
+    label: 'Product'
+    icon: icon-suitcase
+    group: documentation
+
+'TYPO3.DocsTypo3Org:DocumentationPage':
+  superTypes:
+    - 'TYPO3.Neos:Document'
+  ui:
+    label: 'Documentation'
+    icon: icon-file-text
+    group: documentation
+
+'TYPO3.DocsTypo3Org:DocumentationCover':
+  superTypes:
+    - 'TYPO3.DocsTypo3Org:DocumentationPage'
+  ui:
+    label: 'Documentation (Cover)'
+

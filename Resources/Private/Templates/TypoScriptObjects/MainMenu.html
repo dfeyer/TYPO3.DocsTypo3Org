@@ -1,0 +1,16 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+<nav{attributes -> f:format.raw()}>
+<ul class="nav" id="ul-nav">
+	<li><neos:link.node node="/sites/docstypo3org">Home</neos:link.node></li>
+	<f:render section="itemsList" arguments="{items: items}" />
+</ul>
+</nav>
+
+<f:section name="itemsList">
+	<f:for each="{items}" as="item">
+		<li{ts:render(path:'{item.state}.attributes') -> f:format.raw()}>
+			<neos:link.node node="{item.node}">{item.label}</neos:link.node>
+		</li>
+	</f:for>
+</f:section>

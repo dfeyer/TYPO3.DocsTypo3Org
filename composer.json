@@ -1,0 +1,15 @@
+{
+    "name": "typo3/docstypo3org",
+    "type": "typo3-flow-site",
+    "description": "TYPO3 Neos Site Package for docs.typo3.org",
+    "require": {
+        "typo3/neos": "*",
+        "typo3/neos-nodetypes": "*",
+		"typo3/doctools": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "TYPO3\\DocsTypo3Org": "Classes"
+        }
+    }
+}

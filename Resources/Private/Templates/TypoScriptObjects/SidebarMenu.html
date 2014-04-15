@@ -1,0 +1,27 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+<nav{attributes -> f:format.raw()}>
+<ul id="nav-sidebar" class="menu-sidebar">
+	<f:render section="itemsList" arguments="{items: items}" />
+</ul>
+</nav>
+
+<f:section name="itemsList">
+	<f:for each="{items}" as="item">
+		<li{ts:render(path:'{item.state}.attributes') -> f:format.raw()}>
+		<neos:link.node node="{item.node}" class="nav-aside-lvl1">{item.label}</neos:link.node>
+		<f:if condition="{item.subItems}">
+			<f:if condition="{item.state} == 'active'">
+				<ul>
+					<f:render section="itemsList" arguments="{items: item.subItems}" />
+				</ul>
+			</f:if>
+			<f:if condition="{item.state} == 'current'">
+				<ul>
+					<f:render section="itemsList" arguments="{items: item.subItems}" />
+				</ul>
+			</f:if>
+		</f:if>
+		</li>
+	</f:for>
+</f:section>

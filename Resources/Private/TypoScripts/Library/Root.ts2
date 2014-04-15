@@ -1,0 +1,80 @@
+include: NodeTypes/DocumentNavigation.ts2
+include: NodeTypes/Navigation.ts2
+
+root.documentationCover {
+	@position = 'start'
+	condition = ${q(node).is('[instanceof TYPO3.DocsTypo3Org:DocumentationCover]')}
+	renderPath = '/documentationCover'
+}
+root.documentationPage {
+	@position = 'after documentationCover'
+	condition = ${q(node).is('[instanceof TYPO3.DocsTypo3Org:DocumentationPage]')}
+	renderPath = '/documentationPage'
+}
+
+root.product {
+	@position = 'after documentationPage'
+	condition = ${q(node).is('[instanceof TYPO3.DocsTypo3Org:Project]') || q(node).parents('[instanceof TYPO3.DocsTypo3Org:Project]').count()}
+	renderPath = '/project'
+}
+
+/**
+ * Root TypoScript template for the docs.typo3.org Site
+ */
+page = Page {
+	head {
+		metadata = TYPO3.TypoScript:Array {
+			@position = 'after characterSetMetaTag'
+			static = TYPO3.TypoScript:Template {
+				templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/Page/Default.html'
+				sectionName = 'metadata'
+			}
+        }
+		stylesheets = TYPO3.TypoScript:Template {
+			templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/Page/Default.html'
+			sectionName = 'stylesheets'
+		}
+		scripts = TYPO3.TypoScript:Template {
+			templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/Page/Default.html'
+			sectionName = 'scripts'
+		}
+	}
+
+	body {
+		templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/Page/Default.html'
+		sectionName = 'body'
+		parts {
+			mainMenu = TYPO3.DocsTypo3Org:MainMenu
+			helpMenu = TYPO3.DocsTypo3Org:HelpMenu
+			breadcrumb = Breadcrumb
+		}
+		content {
+			main = PrimaryContent {
+				nodePath = 'main'
+			}
+		}
+	}
+}
+
+documentationAbstract < page {
+	body {
+		parts {
+			helpMenu >
+			sidebarMenu = TYPO3.DocsTypo3Org:SidebarMenu
+			documentationMenu = TYPO3.DocsTypo3Org:DocumentationBrowserMenu
+			documentNavigation = TYPO3.DocsTypo3Org:DocumentNavigation {
+				nodePath = 'main'
+			}
+		}
+	}
+}
+documentationCover < documentationAbstract
+documentationPage < documentationAbstract
+
+project < documentationAbstract {
+	body {
+		parts {
+			documentationMenu >
+		}
+	}
+}

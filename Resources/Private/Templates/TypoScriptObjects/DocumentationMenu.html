@@ -1,0 +1,12 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<nav{attributes -> f:format.raw()}>
+	<f:if condition="{prev}">
+		<li><neos:link.node node="{prev}">Previous</neos:link.node></li>
+	</f:if>
+	<f:if condition="{up}">
+		<li><neos:link.node node="{up}">Up</neos:link.node></li>
+	</f:if>
+	<f:if condition="{next}">
+		<li><neos:link.node node="{next}">Next</neos:link.node></li>
+	</f:if>
+</nav>

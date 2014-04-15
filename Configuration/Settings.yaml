@@ -1,0 +1,15 @@
+
+TYPO3:
+  TypoScript:
+    enableContentCache: FALSE
+
+TYPO3:
+  Neos:
+    userInterface:
+      navigateComponent:
+        nodeTree:
+          loadingDepth: 2
+    nodeTypes:
+      groups:
+        documentation:
+          label: 'Documentation'

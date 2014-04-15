@@ -1,0 +1,70 @@
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+<html lang="en">
+<head>
+	<f:section name="metadata">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</f:section>
+	<f:section name="stylesheets">
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/share.css', package: 'TYPO3.DocsTypo3Org')}" media="all">
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/reset.css', package: 'TYPO3.DocsTypo3Org')}" media="all">
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/grid.css', package: 'TYPO3.DocsTypo3Org')}" media="all">
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/main.css', package: 'TYPO3.DocsTypo3Org')}" media="all">
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/dip.css', package: 'TYPO3.DocsTypo3Org')}" media="all">
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/print.css', package: 'TYPO3.DocsTypo3Org')}" media="print">
+		<!--[if IE]>
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/ie.css', package: 'TYPO3.DocsTypo3Org')}" media="all"/>
+		<![endif]-->
+		<!--[if IE 7]>
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/ie7.css', package: 'TYPO3.DocsTypo3Org')}" media="all"/>
+		<![endif]-->
+		<!--[if IE 8]>
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/ie8.css', package: 'TYPO3.DocsTypo3Org')}" media="all"/>
+		<![endif]-->
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/t3_org_doc_main.css', package: 'TYPO3.DocsTypo3Org')}" media="all">
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/t3_to_be_integrated.css', package: 'TYPO3.DocsTypo3Org')}" media="all">
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/t3pygments.css', package: 'TYPO3.DocsTypo3Org')}" media="all">
+	</f:section>
+</head>
+
+<body>
+<f:section name="body">
+	<div class="p doc" id="page">
+		<header id="header" class="h">
+			<a id="logo" href="#">
+				<img width="118" height="34" alt="TYPO3 Logo" src="{f:uri.resource(path: 'Images/typo3-logo.png', package: 'TYPO3.DocsTypo3Org')}">
+			</a>
+			{parts.mainMenu -> f:format.raw()}
+			<div class="header-bg"></div>
+		</header>
+		<div id="sidebar">
+			{parts.sidebarMenu -> f:format.raw()}
+			{parts.helpMenu -> f:format.raw()}
+		</div>
+		<div class="s d">
+			<div class="breadcrumb">
+				{parts.breadcrumb -> f:format.raw()}
+			</div>
+			<div class="body">
+				{parts.documentationMenu -> f:format.raw()}
+				{content.main -> f:format.raw()}
+				{parts.documentationMenu -> f:format.raw()}
+			</div>
+		</div>
+		<footer>
+			Let's try a new magic content management system to handle docs.typo3.org ...
+		</footer>
+	</div>
+</f:section>
+<f:section name="scripts">
+	<script src="{f:uri.resource(path: 'Javascript/css_browser_selector.js', package: 'TYPO3.DocsTypo3Org')}"></script>
+	<script src="{f:uri.resource(path: 'Javascript/jquery.min.js', package: 'TYPO3.DocsTypo3Org')}"></script>
+	<script src="{f:uri.resource(path: 'Javascript/jquery.easing.js', package: 'TYPO3.DocsTypo3Org')}"></script>
+	<script src="{f:uri.resource(path: 'Javascript/jquery.tools.js', package: 'TYPO3.DocsTypo3Org')}"></script>
+	<script src="{f:uri.resource(path: 'Javascript/jquery.MultiFile.pack.js', package: 'TYPO3.DocsTypo3Org')}"></script>
+	<script src="{f:uri.resource(path: 'Javascript/prettyCheckboxes.js', package: 'TYPO3.DocsTypo3Org')}"></script>
+	<script src="{f:uri.resource(path: 'Javascript/jcookies.js', package: 'TYPO3.DocsTypo3Org')}"></script>
+	<script src="{f:uri.resource(path: 'Javascript/main.js', package: 'TYPO3.DocsTypo3Org')}"></script>
+	<script src="{f:uri.resource(path: 'Javascript/dip.js', package: 'TYPO3.DocsTypo3Org')}"></script>
+</f:section>
+</body>
+</html>
