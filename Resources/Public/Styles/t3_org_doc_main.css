@@ -646,6 +646,7 @@ hnav-related a:hover {
 	box-shadow: 4px 4px 6px #ddd;
 	-moz-box-shadow: 4px 4px 6px #ddd;
 	-webkit-box-shadow: 4px 4px 6px #ddd;
+	max-width: 85%;
 }
 .doc .img-scaling {
     width: 100%;
