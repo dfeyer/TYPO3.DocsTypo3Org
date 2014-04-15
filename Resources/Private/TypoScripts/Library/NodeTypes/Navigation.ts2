@@ -37,13 +37,13 @@ prototype(TYPO3.DocsTypo3Org:HelpMenu) < prototype(TYPO3.Neos:Menu) {
 	maximumLevels = 3
 }
 
-prototype(TYPO3.DocsTypo3Org:DocumentationBrowserMenu) < prototype(TYPO3.TypoScript:Template) {
-	templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/TypoScriptObjects/DocumentationMenu.html'
+prototype(TYPO3.DocsTypo3Org:BrowseMenu) < prototype(TYPO3.TypoScript:Template) {
+	templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/TypoScriptObjects/BrowseMenu.html'
 	attributes = TYPO3.TypoScript:Attributes {
 		class = 'documentation-menu'
 	}
 
 	prev = ${q(documentNode).prevDocument('[instanceof TYPO3.DocsTypo3Org:DocumentationPage]').get(0)}
-	up = ${q(documentNode).parents('[instanceof TYPO3.DocsTypo3Org:DocumentationCover]').get(0)}
+	up = ${q(documentNode).parents('[instanceof TYPO3.DocsTypo3Org:DocumentationPage]').get(0)}
 	next = ${q(documentNode).nextDocument('[instanceof TYPO3.DocsTypo3Org:DocumentationPage]').get(0)}
 }

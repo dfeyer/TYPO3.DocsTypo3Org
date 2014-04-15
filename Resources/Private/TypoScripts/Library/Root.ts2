@@ -61,7 +61,7 @@ documentationAbstract < page {
 		parts {
 			helpMenu >
 			sidebarMenu = TYPO3.DocsTypo3Org:SidebarMenu
-			documentationMenu = TYPO3.DocsTypo3Org:DocumentationBrowserMenu
+			browseMenu = TYPO3.DocsTypo3Org:BrowseMenu
 			documentNavigation = TYPO3.DocsTypo3Org:DocumentNavigation {
 				nodePath = 'main'
 			}
