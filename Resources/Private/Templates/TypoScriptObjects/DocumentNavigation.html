@@ -11,7 +11,7 @@
 <f:section name="itemsList">
 	<f:for each="{items}" as="item">
 		<li>
-			<a href="#">{item.label}</a>
+			<a href="#{item.anchor}">{item.label}</a>
 			<f:if condition="{item.subItems}">
 				<ul>
 					<f:render section="itemsList" arguments="{items: item.subItems}" />

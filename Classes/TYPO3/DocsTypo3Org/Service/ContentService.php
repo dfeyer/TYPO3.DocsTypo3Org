@@ -11,17 +11,26 @@ namespace TYPO3\DocsTypo3Org\Service;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\Eel\FlowQuery\FlowQuery;
 use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Exception;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TypoScript\Exception as TypoScriptException;
-use TYPO3\TypoScript\TypoScriptObjects\TemplateImplementation;
 
 /**
  * Content Service
  */
 class ContentService {
+
+	/**
+	 * @param string $text
+	 * @return string
+	 */
+	static public function slugify($text) {
+		$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+		$text = trim($text, '-');
+		$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+		$text = strtolower($text);
+		$text = preg_replace('~[^-\w]+~', '', $text);
+		return $text;
+	}
 
 	/**
 	 * @param string $content
@@ -53,10 +62,12 @@ class ContentService {
 				}
 			}
 
+			$label = html_entity_decode($matches[2][$key]);
 			$items[] = array(
 				'identifier' => $identifier,
 				'level' => (int)$level,
-				'label' => html_entity_decode($matches[2][$key]),
+				'label' => $label,
+				'anchor' => $this->slugify($label),
 				'parentIdentifier' => $parentIdentifier
 			);
 			$previousLevel = $level;
@@ -65,5 +76,4 @@ class ContentService {
 
 		return $items;
 	}
-
 }

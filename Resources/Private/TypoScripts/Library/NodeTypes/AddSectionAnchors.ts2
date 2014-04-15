@@ -1,0 +1,4 @@
+prototype(TYPO3.DocsTypo3Org:AddSectionAnchors) {
+	@class = 'TYPO3\\DocsTypo3Org\\TypoScript\\AddSectionAnchorsImplementation'
+	value = ${value}
+}

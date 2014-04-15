@@ -11,12 +11,9 @@ namespace TYPO3\DocsTypo3Org\Service;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\Eel\FlowQuery\FlowQuery;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Exception;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TypoScript\Exception as TypoScriptException;
-use TYPO3\TypoScript\TypoScriptObjects\TemplateImplementation;
 
 /**
  * Tree Service

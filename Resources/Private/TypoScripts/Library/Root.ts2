@@ -1,3 +1,4 @@
+include: NodeTypes/AddSectionAnchors.ts2
 include: NodeTypes/DocumentNavigation.ts2
 include: NodeTypes/Navigation.ts2
 
@@ -68,6 +69,7 @@ documentationAbstract < page {
 				nodePath = 'main'
 			}
 		}
+		content.main.@process.addSectionAnchors = TYPO3.DocsTypo3Org:AddSectionAnchors
 	}
 }
 documentationCover < documentationAbstract
