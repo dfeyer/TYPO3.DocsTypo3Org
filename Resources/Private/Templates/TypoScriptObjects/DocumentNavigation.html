@@ -1,14 +1,17 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
-<nav{attributes -> f:format.raw()}>
-	<ul class="document-navigation">
-		<f:render section="itemsList" arguments="{items: items}" />
-	</ul>
-</nav>
+<f:if condition="{renderNavigation}">
+	<nav{attributes -> f:format.raw()}>
+		<ul class="menu-sidebar menu-sidebar-document">
+			<li class="menu-sidebar-header">Navigate within this page</li>
+			<f:render section="itemsList" arguments="{items: items}" />
+		</ul>
+	</nav>
+</f:if>
 
 <f:section name="itemsList">
 	<f:for each="{items}" as="item">
 		<li>
-			<a href="#">{item.level} / {item.label}</a>
+			<a href="#">{item.label}</a>
 			<f:if condition="{item.subItems}">
 				<ul>
 					<f:render section="itemsList" arguments="{items: item.subItems}" />

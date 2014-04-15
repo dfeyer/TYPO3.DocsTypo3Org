@@ -65,20 +65,19 @@ button 			{ border:0; background:transparent; cursor: pointer; margin: 0; overfl
 
 /* General styles
 ------------------------------ */
-html 			{ background: #fbfbfb url(../i/shadow-site.png) repeat-x 0 0; height:100%; font: 12px/18px Arial, 'Helvetica Neue', Helvetica, sans-serif; overflow-y: scroll; }
-body 			{ background: transparent url(../i/shadow-page.jpg) no-repeat center 186px; min-height:100%; }
+html 			{ background: #141414; height:100%; font: 12px/18px Arial, 'Helvetica Neue', Helvetica, sans-serif; overflow-y: scroll; }
+body 			{ background: transparent; min-height:100%; }
 
 /* Page home
 ------------------------------ */
 .page-home		{ background-color: #fff; background-position:0 -5px;}
 .page-home .p	{ background: none; }
-.page-home body { background: url(../i/shadow-top-slider.jpg) no-repeat center 199px; }
 .page-home .c	{ border: none; }
 .page-home .s	{ padding: 0; overflow: visible; }
 
 /* Page 404
 --------------------------------------- */
-.page-wide .p	{ background: #fff url(../i/page-404.png) repeat-x 0 134px; }
+.page-wide .p	{ background: #fff; }
 .page-wide .s	{ padding: 57px 70px 100px 70px; }
 
 .b-404				{  }
@@ -2279,4 +2278,44 @@ label[for="tx-czsimplecal-event-locationCity"] {
 .documentation-menu li {
 	display: inline-block;
 	padding: 0 0 0 .8em;
+}
+
+.menu-sidebar-document {
+	margin-top: 20px;
+}
+
+ul.menu-sidebar-document li {
+	padding-left: 0;
+}
+
+.menu-sidebar-document > .menu-sidebar-header {
+	background: #dbdbdb;
+	display: block;
+	padding: 8px 10px;
+	color: #656565;
+	font-weight: normal;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+
+.columns-50-50, .columns-33-33-33 {
+	overflow: hidden;
+	padding: .2em 0;
+}
+.columns-50-50 .column {
+	width: 47%;
+	margin-right: 4%;
+	float: left;
+}
+.columns-50-50 .column:last-child {
+	margin-right: 0;
+}
+.columns-33-33-33 .column {
+	width: 29%;
+	margin-right: 4%;
+	float: left;
+}
+.columns-33-33-33 .column:last-child {
+	margin-right: 0;
 }

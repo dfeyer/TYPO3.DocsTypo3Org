@@ -30,28 +30,37 @@ class ContentService {
 	public function extractDocumentNavigation($content) {
 		$items = $matches = array();
 		$previousLevel = 1;
-		$identifier = $previousIdentifier = NULL;
-		$previousLevelIdentifiers = array();
+		$identifier = $previousIdentifier = 0;
+		$parentIdentifier = NULL;
 		preg_match_all('/<h(\d)>([^<]*)<\/h\d>/iU', $content, $matches);
+		$identifierStack = array();
 		foreach ($matches[1] as $key => $level) {
-			if ($previousLevel != $level) {
-				$previousLevelIdentifiers[$previousLevel] = $identifier;
-				if ($previousLevel > $level) {
-					$previousIdentifier = $previousLevelIdentifiers[$previousLevel];
-				} elseif ($previousLevel < $level) {
-					$previousIdentifier = isset($previousLevelIdentifiers[$previousLevel - 1]) ? $previousLevelIdentifiers[$previousLevel - 1] : $identifier;
+			$level = (int)$level;
+			$identifier++;
+			$identifierStack[$level] = $identifier;
+			if ($level > $previousLevel) {
+				$parentIdentifier = $previousIdentifier;
+			} elseif ($level === 1) {
+				$parentIdentifier = NULL;
+			} elseif ($level < $previousLevel) {
+				$levels = array_keys($identifierStack);
+				$levels = array_reverse($levels);
+				foreach ($levels as $upperLevel) {
+					if ($upperLevel < $level) {
+						$parentIdentifier = $identifierStack[$upperLevel];
+						break;
+					}
 				}
 			}
-			$identifier = uniqid();
-
-			$previousLevel = $level;
 
 			$items[] = array(
 				'identifier' => $identifier,
 				'level' => (int)$level,
-				'label' => $matches[2][$key],
-				'parentIdentifier' => $previousIdentifier
+				'label' => html_entity_decode($matches[2][$key]),
+				'parentIdentifier' => $parentIdentifier
 			);
+			$previousLevel = $level;
+			$previousIdentifier = $identifier;
 		}
 
 		return $items;

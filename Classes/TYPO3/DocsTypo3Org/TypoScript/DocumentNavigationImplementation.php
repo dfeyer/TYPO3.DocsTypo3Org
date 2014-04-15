@@ -36,7 +36,40 @@ class DocumentNavigationImplementation extends TemplateImplementation {
 	 */
 	protected $contentService;
 
+	/**
+	 * @var integer
+	 */
+	protected $itemsCounter;
+
+	/**
+	 * @var array
+	 */
+	protected $items = NULL;
+
+	/**
+	 * @return integer
+	 */
+	public function getItemsCounter() {
+		if ($this->items === NULL) {
+			$this->buildItems();
+		}
+		return $this->itemsCounter;
+	}
+
+	/**
+	 * @return array
+	 */
 	public function getItems() {
+		return $this->buildItems();
+	}
+
+	/**
+	 * @return array
+	 */
+	protected function buildItems() {
+		if ($this->items !== NULL) {
+			return $this->items;
+		}
 		/** @var NodeInterface $documentNode */
 		$documentNode = $this->tsValue('node');
 		$rawContent = '';
@@ -48,32 +81,9 @@ class DocumentNavigationImplementation extends TemplateImplementation {
 			}
 		}
 		$items = $this->contentService->extractDocumentNavigation($rawContent);
-		return $this->treeService->buildTree($items);
-	}
-
-	/**
-	 * @param array $elements
-	 * @param integer $parentIdentifier
-	 * @return array
-	 */
-	public function buildTree(array $elements, $parentIdentifier = 0) {
-		$branch = array();
-
-		foreach ($elements as $element) {
-			if ($element['parentIdentifier'] == $parentIdentifier) {
-				$children = $this->buildTree($elements, $element['identifier']);
-				if ($children) {
-					$element['subItems'] = $children;
-				}
-				$branch[] = $element;
-			}
-		}
-
-		return $branch;
-	}
-
-	protected function renderDocumentNavigation() {
-
+		$this->itemsCounter = count($items);
+		$this->items = $this->treeService->buildTree($items);
+		return $this->items;
 	}
 
 }

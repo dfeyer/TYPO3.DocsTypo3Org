@@ -2,7 +2,10 @@ prototype(TYPO3.DocsTypo3Org:DocumentNavigation) < prototype(TYPO3.TypoScript:Te
 	@class = 'TYPO3\\DocsTypo3Org\\TypoScript\\DocumentNavigationImplementation'
 	templatePath = 'resource://TYPO3.DocsTypo3Org/Private/Templates/TypoScriptObjects/DocumentNavigation.html'
 
+	minimumItemsCounter = 1
+	nodePath = 'main'
+
 	node = ${documentNode}
 	items = ${this.items}
-	nodePath = 'main'
+	renderNavigation = ${this.itemsCounter > this.minimumItemsCounter ? true : false}
 }

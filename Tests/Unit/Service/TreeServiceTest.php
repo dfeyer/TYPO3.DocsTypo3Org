@@ -14,7 +14,7 @@ namespace TYPO3\DocsTypo3Org\Tests\Unit\Command;
 use TYPO3\DocsTypo3Org\Service\TreeService;
 
 /**
- * Testcase for the "DocumentNavigationImplementation"
+ * Testcase for the "TreeService"
  *
  */
 class TreeServiceTest extends \TYPO3\Flow\Tests\UnitTestCase {
