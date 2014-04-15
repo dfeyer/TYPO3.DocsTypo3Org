@@ -46,7 +46,9 @@ page = Page {
 		parts {
 			mainMenu = TYPO3.DocsTypo3Org:MainMenu
 			helpMenu = TYPO3.DocsTypo3Org:HelpMenu
-			breadcrumb = Breadcrumb
+			breadcrumb = BreadcrumbMenu {
+				attributes.class = 'breadcrumbs'
+			}
 		}
 		content {
 			main = PrimaryContent {
