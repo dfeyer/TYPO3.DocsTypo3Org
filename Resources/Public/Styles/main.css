@@ -329,7 +329,7 @@ input::-moz-focus-inner 		{ padding: 0; border: none; }
 
 /* Header elements
 ------------------------------ */
-#logo 			{ text-decoration:none; display:block; width: 118px; position: absolute; left: 13px; top: 40px; }
+#logo 			{ text-decoration:none; display:block; width: 118px; position: absolute; left: 13px; top: 28px; }
 #logo img		{ }
 
 .h-bar			{ position: absolute; top: 52px; right: 0; z-index: 200; font-size:11px;}
